@@ -22,7 +22,7 @@ import com.example.demo.service.server.SlopeService;
 
 @Component
 public class Alpensia {
-	//Hello!!!
+	// Hello2
 	@Autowired
 	private ResortService resortService;
 	
