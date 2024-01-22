@@ -1,0 +1,27 @@
+1. Error발생 -> BasicErrorController로 이동 (별도의 설정이 없다면,)
+2. Controller에서 오류 발생 -> WAS까지 이동 -> BasicErrorController에서 처리
+3. 일반적인 요청->Requset, 에러처리 요청->Error
+
+[해결책]
+대부분의 HandlerExceptionResolver는 발생한 Exception을 catch하고
+HTTP 상태나 응답 메세지 등을 설정한다.
+그래서 WAS 입장에서는 해당 요청이 정상적인 응답인 것으로 인식되며,
+위에서 설명한 복잡한 WAS의 에러 전달이 진행되지 않는다.
+Object -> 예외가 발생한 Controller
+
+
+[오류페이지 설계]
+1. 오류르 GlobalExceptionHandler로 전송을 한다.
+2. 에러를 return한다.
+3. 해당 오류가 발생한 컨트롤러의 메서드에서 return을 하면 될듯.
+Exception Handler에서 가져온 정보를 view에 실어서 보내면 될 듯.
+
+
+Controller 메서드 위에 직접 @ExceptionHandler를 쓰면, 해당 메서드에서만 처리.
+@RestControllerAdvice에 등록을 하면, 거기에 @ExceptionHandler가 처리.
+
+// 예외 커스터마이징 방법
+// 1.예외 클래스 생성 및 상속(RuntimeException 등.)
+// 2.@ControllerAdvice와 같은 통합 예외 처리 클래스에 1.에서 커스터마이징한 예외 클래스 등록
+// 3.throw new CustomizeException을 하면됨.
+
