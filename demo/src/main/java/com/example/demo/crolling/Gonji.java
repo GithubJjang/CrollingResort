@@ -27,7 +27,7 @@ public class Gonji {
 	
 	@Autowired
 	private SlopeService slopeService;
-	
+	///////////////////////////////
 	//@Scheduled(fixedDelay = 30000)
 	public void doCrolling() throws IOException {
 		
