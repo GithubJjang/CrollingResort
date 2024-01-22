@@ -13,7 +13,7 @@ import com.example.demo.dto.ErrorDTO;
 
 @RestControllerAdvice
 public class GlobalExceptionHandler extends ResponseEntityExceptionHandler {
-	
+	// ABCDEFGHIJKLMN
 	// 1. Client가 없는 정보를 조회하는 경우.
 	@ExceptionHandler(CustomNPE.class)
 	public ResponseEntity<Object> resortNull(CustomNPE e){
