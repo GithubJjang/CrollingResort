@@ -28,7 +28,7 @@ public class Alpensia {
 	
 	@Autowired
 	private SlopeService slopeService;
-	
+	/////
 	//@Scheduled(fixedDelay = 30000)
 	public void doCrolling() {
 		
